@@ -1,13 +1,32 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  const seenNumbers = {}
+  for (let i = 0; i < array.length; i++){
+    const complement = target - array[i];
+    if (seenNumbers[complement]) return true; 
+    seenNumbers[array[i]] = true;
+  }
+  return false
 }
-
+// for (let i = 0; i < array.length; i++){
+//   const complement = target - array[i];
+//   for (let j = i + 1; j < array.length; j++) {
+//     if (array[j] === complement) return true;
+//   }
+// }
+// return false
 /* 
   Write the Big O time complexity of your function here
+  runtime: 0(n^2)
+  space: 0(n)
 */
 
 /* 
   Add your pseudocode here
+  iterate through array for initial number
+  subtract initial number from target to get secondary number
+  iterate through array again for secondary number
+  if secondary number found, return true
+  otherwise return false
 */
 
 /*
